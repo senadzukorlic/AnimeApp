@@ -6,11 +6,12 @@ import Header from "./Components/Header/Header"
 import Footer from "./Components/Footer/Footer"
 import NavBar from "./Components/NavBar/NavBar"
 
-import { Home } from "./Components/Home/Home"
-import { Anime } from "./Components/Anime/Anime"
-import { Manga } from "./Components/Manga/Manga"
-import { AboutUs } from "./Components/AboutUs/AboutUs"
-import { Favorites } from "./Components/Favorites/Favorites"
+import { Home } from "./Pages/Home/Home"
+import { Anime } from "./Pages/Anime/Anime"
+import { AnimeDetail } from "./Pages/AnimeDetail/AnimeDetail"
+import { Manga } from "./Pages/Manga/Manga"
+import { AboutUs } from "./Pages/AboutUs/AboutUs"
+import { Favorites } from "./Pages/Favorites/Favorites"
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/anime" element={<Anime />} />
+        <Route path="/anime-detail" element={<AnimeDetail />} />
         <Route path="/manga" element={<Manga />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/favorites" element={<Favorites />} />
