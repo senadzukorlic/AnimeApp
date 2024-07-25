@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react"
 import { AnimeApi, MangaApi } from "../API/Request"
 
-const AnimeData = createContext()
+export const AnimeData = createContext()
 
 export function AnimeProvider({ children }) {
   const [animeData, setAnimeData] = useState([])
