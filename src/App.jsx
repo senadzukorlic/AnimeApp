@@ -32,15 +32,17 @@ function App() {
     <>
       <GlobalStyles />
       <Header />
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/anime" element={<Anime />} />
-        <Route path="/anime-detail" element={<AnimeDetail />} />
-        <Route path="/manga" element={<Manga />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/favorites" element={<Favorites />} />
-      </Routes>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/anime" element={<Anime />} />
+          <Route path="/anime-detail" element={<AnimeDetail />} />
+          <Route path="/manga" element={<Manga />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   )
