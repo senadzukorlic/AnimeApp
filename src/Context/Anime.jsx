@@ -1,33 +1,37 @@
-import { createContext, useState, useEffect } from "react"
-import { AnimeApi, MangaApi } from "../API/Request"
+import { createContext, useState, useEffect } from "react";
+import { AnimeApi, MangaApi } from "../API/Request";
 
-const AnimeData = createContext()
+export const AnimeData = createContext();
 
 export function AnimeProvider({ children }) {
-  const [animeData, setAnimeData] = useState([])
-  const [mangaData, setMangaData] = useState([])
+  const [animeData, setAnimeData] = useState([]);
+  const [mangaData, setMangaData] = useState([]);
 
   useEffect(() => {
     const fetchAnimeData = async () => {
       try {
-        const anime = await AnimeApi()
-        const manga = await MangaApi()
+        const animeResponse = await AnimeApi();
+        const mangaResponse = await MangaApi();
 
-        setAnimeData(anime)
-        setMangaData(manga)
-
-        console.log(`ANIME`, anime)
-        console.log(`MANGA`, manga)
+        if (animeResponse && mangaResponse) {
+          setAnimeData(animeResponse.data);
+          setMangaData(mangaResponse.data);
+          console.log("ANIME Data:", animeResponse.data);
+          console.log("MANGA Data:", mangaResponse.data);
+        } else {
+          console.log("API response is missing");
+        }
       } catch (error) {
-        console.log(`Fecanje nije uspelo`, error)
+        console.log("Fetching data failed", error);
       }
-    }
-    fetchAnimeData()
-  }, [])
+    };
+
+    fetchAnimeData();
+  }, []);
 
   return (
-    <AnimeData.Provider value={{ animeData, mangaData }}>
+    <AnimeData.Provider value={{ animeData, setAnimeData, mangaData }}>
       {children}
     </AnimeData.Provider>
-  )
+  );
 }
