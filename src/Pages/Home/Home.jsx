@@ -1,20 +1,60 @@
 import { GenreCard } from "./GenreCard"
-import { useContext } from "react"
-import { AnimeData } from "../../Context/Anime"
+
+import { Carousel } from "./Carousel"
+import { ParentDiv, CardDiv } from "./HomeStyled"
+import {
+  fetchAdventureAnime,
+  fetchHorrorAnime,
+  fetchRomanceAnime,
+} from "../../API/Request"
+import { useEffect, useState } from "react"
 export function Home() {
-  const { anime, genres } = useContext(AnimeData)
+  const [adventure, setAdventure] = useState([])
+  const [romance, setRomance] = useState([])
+  const [horror, setHorror] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const adventureResponse = await fetchAdventureAnime()
+      const romanceResponse = await fetchRomanceAnime()
+      const horrorResponse = await fetchHorrorAnime()
+
+      setAdventure(adventureResponse.data)
+      setRomance(romanceResponse.data)
+      setHorror(horrorResponse.data)
+    }
+    fetchData()
+  }, [])
 
   return (
-    <>
-      <h1>Home</h1>
-      {Array.isArray(anime) &&
-        anime.map((item) => (
+    <ParentDiv>
+      <Carousel />
+      <CardDiv>
+        {adventure.map((item) => (
           <GenreCard
             key={item.id}
-            genre="Adventure"
             animeManga={item.attributes.posterImage.original}
           />
         ))}
-    </>
+      </CardDiv>
+      <CardDiv>
+        {" "}
+        {romance.map((item) => (
+          <GenreCard
+            key={item.id}
+            animeManga={item.attributes.posterImage.original}
+          />
+        ))}
+      </CardDiv>
+
+      <CardDiv>
+        {horror.map((item) => (
+          <GenreCard
+            key={item.id}
+            animeManga={item.attributes.posterImage.original}
+          />
+        ))}
+      </CardDiv>
+    </ParentDiv>
   )
 }

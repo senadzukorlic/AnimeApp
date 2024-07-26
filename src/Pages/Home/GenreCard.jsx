@@ -7,7 +7,9 @@ import {
   StyledCardMedia,
 } from "./GenreCardStyled"
 
-export function GenreCard({ genre, animeManga, index }) {
+export function GenreCard({ genre, animeManga }) {
+  console.log("GenreCard props:", { genre, animeManga })
+
   return (
     <ParentDiv>
       <GenreTitleDiv>
@@ -15,7 +17,7 @@ export function GenreCard({ genre, animeManga, index }) {
       </GenreTitleDiv>
 
       <CardDiv>
-        <StyledCard key={index}>
+        <StyledCard>
           <StyledCardMedia
             component="img"
             image={animeManga}
