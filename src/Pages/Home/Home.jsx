@@ -2,11 +2,11 @@ import { GenreCard } from "./GenreCard"
 import { useContext } from "react"
 import { AnimeData } from "../../Context/Anime"
 export function Home() {
-  const { animeData, mangaData } = useContext(AnimeData)
+  const { anime, genres } = useContext(AnimeData)
 
   return (
     <>
-      <h1></h1>
+
     </>
   )
 }

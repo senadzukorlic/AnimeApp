@@ -26,6 +26,23 @@ export async function MangaApi() {
   }
 }
 
+export async function fetchAnimeGenres(id) {
+  try {
+    const response = await axios.get(
+      `https://kitsu.io/api/edge/anime/${id}/genres`,
+      {
+        headers: {
+          Accept: "application/vnd.api+json",
+        },
+      }
+    )
+    return response.data.data
+  } catch (error) {
+    console.error(`Fetchanje žanrova za anime ${id} nije uspelo`, error)
+    return []
+  }
+}
+
 // import axios from "axios"
 // export async function AnimeApi() {
 //   const allAnime = []

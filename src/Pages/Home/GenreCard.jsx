@@ -16,9 +16,11 @@ export function GenreCard({ genre, animeManga, index }) {
 
       <CardDiv>
         <StyledCard key={index}>
-          <StyledCardMedia>
-            <img src={animeManga} />
-          </StyledCardMedia>
+          <StyledCardMedia
+            component="img"
+            image={animeManga}
+            alt={`${genre} poster`}
+          ></StyledCardMedia>
         </StyledCard>
       </CardDiv>
     </ParentDiv>
