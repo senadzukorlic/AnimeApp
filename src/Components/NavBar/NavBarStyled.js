@@ -7,8 +7,7 @@ export const NavbarContainer = styled.div`
     align-items: left;
     color: white;
     padding: 20px;
-    border-bottom: 1px solid white; /* Donja linija ispod navbar-a */
-    height: 100vh;
+    height: 900px;
     width: 150px;
     border-right: 1px solid aliceblue;
     border-top: none;
@@ -26,13 +25,15 @@ export const Menu = styled.ul`
     flex-direction: column;
     align-items: left; /* Poravnavanje stavki na levo */
     color: white;
-    width: 100%; /* Širina menija */
+    width: 100px; /* Širina menija */
    font-size: 15px;
-    height: 100%; /* Visina menija */
+    height: 500px; /* Visina menija */
+   
 `;
 
 export const MenuItem = styled.li`
     margin-bottom: 26px; /* Dodatna margina između stavki */
+    
 `;
 
 export const MenuLink = styled.a`
@@ -40,6 +41,7 @@ export const MenuLink = styled.a`
     text-decoration: none; /* Uklanja dekoraciju slova */
    
     transition: background-color 0.2s ease; /* Glatak prelaz za hover efekat */
+    
 
 `;
 
@@ -58,8 +60,8 @@ export const FirstMenuItemLink = styled(MenuLink)`
 `;
 
 export const NotFirstMenuItemLink = styled(MenuLink)`
-    color: rgb(153, 149, 149); /* Boja teksta za sve ostale linkove */
-    background-color: transparent; /* Transparentna pozadina za sve ostale linkove */
+    color: rgb(153, 149, 149);
+    background-color: transparent; 
     
 
     
