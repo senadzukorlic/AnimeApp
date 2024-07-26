@@ -30,17 +30,15 @@ export const CardDiv = styled("div")`
   justify-content: start;
   align-items: center;
   gap: 10px;
-  /* background-color: green; */
+  background-color: green;
   width: 100%;
   height: 100%;
 `
 export const StyledCard = styled(Card)`
-  max-width: 120px;
-  height: 180px;
+  max-width: 150px;
+  height: 200px;
   border-radius: 0;
   margin-left: 30px;
-  padding-top: 64px; /* Ovo odgovara theme.spacing(8) */
-  /* background-color: orange; */
   transition: transform 0.1s ease-in-out;
   overflow: visible;
 
@@ -51,6 +49,5 @@ export const StyledCard = styled(Card)`
 
 export const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   width: 150,
-  height: 150,
-  border: "none",
+  height: 200,
 }))
