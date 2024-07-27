@@ -1,24 +1,25 @@
 import React from 'react';
-import { NavbarContainer, Menu, MenuItem, MenuLink, FirstMenuItemLink, NotFirstMenuItem, NotFirstMenuItemLink } from './NavBarStyled';
+import { Link } from 'react-router-dom';
+import { NavbarContainer, Menu, MenuItem, FirstMenuItemLink, NotFirstMenuItem, NotFirstMenuItemLink } from './NavBarStyled';
 
 const NavBar = () => {
     return (
         <NavbarContainer>
             <Menu>
                 <MenuItem>
-                    <FirstMenuItemLink href="#">Home</FirstMenuItemLink>
+                    <FirstMenuItemLink as={Link} to="/">Home</FirstMenuItemLink>
                 </MenuItem>
                 <NotFirstMenuItem>
-                    <NotFirstMenuItemLink href="#">Anime</NotFirstMenuItemLink>
+                    <NotFirstMenuItemLink as={Link} to="/anime">Anime</NotFirstMenuItemLink>
                 </NotFirstMenuItem>
                 <NotFirstMenuItem>
-                    <NotFirstMenuItemLink href="#">Manga</NotFirstMenuItemLink>
+                    <NotFirstMenuItemLink as={Link} to="/manga">Manga</NotFirstMenuItemLink>
                 </NotFirstMenuItem>
                 <NotFirstMenuItem>
-                    <NotFirstMenuItemLink href="#">About Us</NotFirstMenuItemLink>
+                    <NotFirstMenuItemLink as={Link} to="/about-us">About Us</NotFirstMenuItemLink>
                 </NotFirstMenuItem>
                 <NotFirstMenuItem>
-                    <NotFirstMenuItemLink href="#">Favorites</NotFirstMenuItemLink>
+                    <NotFirstMenuItemLink as={Link} to="/favorites">Favorites</NotFirstMenuItemLink>
                 </NotFirstMenuItem>
             </Menu>
         </NavbarContainer>
