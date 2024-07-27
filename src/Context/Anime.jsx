@@ -5,6 +5,11 @@ export const AnimeData = createContext()
 
 export function AnimeProvider({ children }) {
   const [anime, setAnimeData] = useState([])
+  const [detailAnime, setDetailAnime] = useState([])
+
+  const clearDetailAnime = () => {
+    setDetailAnime([])
+  }
 
   useEffect(() => {
     const fetchAnimeData = async () => {
@@ -21,5 +26,11 @@ export function AnimeProvider({ children }) {
     fetchAnimeData()
   }, [])
 
-  return <AnimeData.Provider value={{ anime }}>{children}</AnimeData.Provider>
+  return (
+    <AnimeData.Provider
+      value={{ anime, detailAnime, setDetailAnime, clearDetailAnime }}
+    >
+      {children}
+    </AnimeData.Provider>
+  )
 }
