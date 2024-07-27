@@ -13,15 +13,13 @@ export function GenreCard({ genre, animeManga }) {
   return (
     <ParentDiv>
       <CardDiv>
-        <Link to="/anime-detail" style={{ textDecoration: "none" }}>
-          <StyledCard>
-            <StyledCardMedia
-              component="img"
-              image={animeManga}
-              alt={`${genre} poster`}
-            ></StyledCardMedia>
-          </StyledCard>
-        </Link>
+        <StyledCard>
+          <StyledCardMedia
+            component="img"
+            image={animeManga}
+            alt={`${genre} poster`}
+          ></StyledCardMedia>
+        </StyledCard>
       </CardDiv>
     </ParentDiv>
   )

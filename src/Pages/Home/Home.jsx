@@ -1,91 +1,7 @@
-// import { GenreCard } from "./GenreCard"
-
-// import { Carousel } from "./Carousel"
-// import { ParentDiv, CardDiv } from "./HomeStyled"
-// import {
-//   fetchAdventureAnime,
-//   fetchHorrorAnime,
-//   fetchRomanceAnime,
-//   fetchAdventureManga,
-//   fetchActionManga,
-// } from "../../API/Request"
-// import { useEffect, useState } from "react"
-// export function Home() {
-//   const [adventure, setAdventure] = useState([])
-//   const [romance, setRomance] = useState([])
-//   const [horror, setHorror] = useState([])
-//   const [adventureManga, setAdventureManga] = useState([])
-//   const [actionManga, setActionManga] = useState([])
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const adventureResponse = await fetchAdventureAnime()
-//       const romanceResponse = await fetchRomanceAnime()
-//       const horrorResponse = await fetchHorrorAnime()
-//       const adventureMangaResponse = await fetchAdventureManga()
-//       const actionMangaResponse = await fetchActionManga()
-
-//       setAdventure(adventureResponse.data)
-//       setRomance(romanceResponse.data)
-//       setHorror(horrorResponse.data)
-//       setAdventureManga(adventureMangaResponse.data)
-//       setActionManga(actionMangaResponse.data)
-//     }
-//     fetchData()
-//   }, [])
-
-//   return (
-//     <ParentDiv>
-//       <Carousel />
-//       <CardDiv>
-
-//         {adventure.map((item) => (
-//           <GenreCard
-//             key={item.id}
-//             animeManga={item.attributes.posterImage.original}
-//           />
-//         ))}
-//       </CardDiv>
-//       <CardDiv>
-//         {" "}
-//         {romance.map((item) => (
-//           <GenreCard
-//             key={item.id}
-//             animeManga={item.attributes.posterImage.original}
-//           />
-//         ))}
-//       </CardDiv>
-
-//       <CardDiv>
-//         {horror.map((item) => (
-//           <GenreCard
-//             key={item.id}
-//             animeManga={item.attributes.posterImage.original}
-//           />
-//         ))}
-//       </CardDiv>
-//       <CardDiv>
-//         {adventureManga.map((item) => (
-//           <GenreCard
-//             key={item.id}
-//             animeManga={item.attributes.posterImage.original}
-//           />
-//         ))}
-//       </CardDiv>
-//       <CardDiv>
-//         {actionManga.map((item) => (
-//           <GenreCard
-//             key={item.id}
-//             animeManga={item.attributes.posterImage.original}
-//           />
-//         ))}
-//       </CardDiv>
-//     </ParentDiv>
-//   )
-// }
-
 import { GenreCard } from "./GenreCard"
 import { Carousel } from "./Carousel"
+import { Link } from "react-router-dom"
+import { AnimeData } from "../../Context/Anime"
 import {
   ParentDiv,
   CardContainer,
@@ -99,7 +15,7 @@ import {
   fetchAdventureManga,
   fetchActionManga,
 } from "../../API/Request"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 export function Home() {
   const [adventure, setAdventure] = useState([])
@@ -107,6 +23,7 @@ export function Home() {
   const [horror, setHorror] = useState([])
   const [adventureManga, setAdventureManga] = useState([])
   const [actionManga, setActionManga] = useState([])
+  const { detailAnime, setDetailAnime } = useContext(AnimeData)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -125,6 +42,15 @@ export function Home() {
     fetchData()
   }, [])
 
+  const addToFavorite = (item) => {
+    const alreadyFavorite = detailAnime.some(
+      (favorite) => favorite.id === item.id
+    )
+    if (!alreadyFavorite) {
+      setDetailAnime([...detailAnime, item])
+    }
+  }
+
   return (
     <ParentDiv>
       <Carousel />
@@ -134,10 +60,14 @@ export function Home() {
         </GenreTitleDiv>
         <div className="card-scroll">
           {adventure.map((item) => (
-            <GenreCard
-              key={item.id}
-              animeManga={item.attributes.posterImage.original}
-            />
+            <div onClick={() => addToFavorite(item)}>
+              <Link to="/anime-detail" style={{ textDecoration: "none" }}>
+                <GenreCard
+                  key={item.id}
+                  animeManga={item.attributes.posterImage.original}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </CardContainer>
@@ -147,10 +77,14 @@ export function Home() {
         </GenreTitleDiv>
         <div className="card-scroll">
           {romance.map((item) => (
-            <GenreCard
-              key={item.id}
-              animeManga={item.attributes.posterImage.original}
-            />
+            <div onClick={() => addToFavorite(item)}>
+              <Link to="/anime-detail" style={{ textDecoration: "none" }}>
+                <GenreCard
+                  key={item.id}
+                  animeManga={item.attributes.posterImage.original}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </CardContainer>
@@ -160,10 +94,14 @@ export function Home() {
         </GenreTitleDiv>
         <div className="card-scroll">
           {horror.map((item) => (
-            <GenreCard
-              key={item.id}
-              animeManga={item.attributes.posterImage.original}
-            />
+            <div onClick={() => addToFavorite(item)}>
+              <Link to="/anime-detail" style={{ textDecoration: "none" }}>
+                <GenreCard
+                  key={item.id}
+                  animeManga={item.attributes.posterImage.original}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </CardContainer>
@@ -173,10 +111,14 @@ export function Home() {
         </GenreTitleDiv>
         <div className="card-scroll">
           {adventureManga.map((item) => (
-            <GenreCard
-              key={item.id}
-              animeManga={item.attributes.posterImage.original}
-            />
+            <div onClick={() => addToFavorite(item)}>
+              <Link to="/anime-detail" style={{ textDecoration: "none" }}>
+                <GenreCard
+                  key={item.id}
+                  animeManga={item.attributes.posterImage.original}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </CardContainer>
@@ -186,10 +128,14 @@ export function Home() {
         </GenreTitleDiv>
         <div className="card-scroll">
           {actionManga.map((item) => (
-            <GenreCard
-              key={item.id}
-              animeManga={item.attributes.posterImage.original}
-            />
+            <div onClick={() => addToFavorite(item)}>
+              <Link to="/anime-detail" style={{ textDecoration: "none" }}>
+                <GenreCard
+                  key={item.id}
+                  animeManga={item.attributes.posterImage.original}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       </CardContainer>
