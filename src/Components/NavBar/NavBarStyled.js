@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -10,8 +11,8 @@ export const NavbarContainer = styled.div`
   border-right: 1px solid aliceblue;
   border-bottom: none;
   margin: 0;
-  font-weight: bold; /* Povećava debljinu fonta */
-`
+  font-weight: bold;
+`;
 
 export const Menu = styled.ul`
   list-style-type: none;
@@ -19,51 +20,35 @@ export const Menu = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: left; /* Poravnavanje stavki na levo */
+  align-items: left;
   color: white;
-  width: 100%; /* Širina menija */
+  width: 100%;
   font-size: 15px;
-  height: 100%; /* Visina menija */
-`
+  height: 100%;
+`;
 
 export const MenuItem = styled.li`
-  margin-bottom: 26px; /* Dodatna margina između stavki */
-`
+  margin-bottom: 26px;
+`;
 
-export const MenuLink = styled.a`
-  color: rgb(153, 149, 149);
-  text-decoration: none; /* Uklanja dekoraciju slova */
-
-  transition: background-color 0.2s ease; /* Glatak prelaz za hover efekat */
-`
-
-export const FirstMenuItemLink = styled(MenuLink)`
-  color: white; /* Boja teksta za prvi link */
-  font-size: 20px;
-
-  transition: transform 0.2s, font-size 0.2s ease; /* Glatki prelaz za transformaciju i promenu veličine fonta */
-  display: inline-block; /* Postavlja elemente da budu u liniji */
-  margin: 0px;
+// Stilizovani NavLink
+export const NavLinkStyled = styled(NavLink)`
+  color: rgb(153, 149, 149); /* Osnovna boja teksta */
+  text-decoration: none;
+  transition: transform 0.2s, font-size 0.2s ease;
+  display: inline-block;
+  margin: 0;
   margin-top: 20px;
-  margin-right: 10px; /* Dodaje malo razmaka između elemenata */
-  &:hover {
-    transform: translateX(
-      9px
-    ); /* Pomeranje na desno za 5 piksela i povećanje veličine za 5% */
-  }
-`
-
-export const NotFirstMenuItemLink = styled(MenuLink)`
-  color: rgb(153, 149, 149); /* Boja teksta za sve ostale linkove */
-  background-color: transparent; /* Transparentna pozadina za sve ostale linkove */
-`
-
-export const NotFirstMenuItem = styled(MenuItem)`
-  display: inline-block; /* Postavlja elemente da budu u liniji */
-  margin-right: 10px; /* Dodaje malo razmaka između elemenata */
-  transition: transform 0.3s ease, font-size 0.3s ease; /* Glatki prelaz za transformaciju i promenu veličine fonta */
+  margin-right: 10px;
 
   &:hover {
-    transform: translateX(9px) scale(1.05); /* Pomeranje na desno za 5 piksela i povećanje veličine za 5% */
+    font-size: 18px; /* Veća veličina fonta za hover efekat */
+    color: white; /* Promeni boju na hover */
+    transform: translateX(9px);
   }
-`
+
+  &.active {
+    font-size: 20px; /* Veća veličina fonta za aktivan link */
+    color: white; /* Boja teksta za aktivan link */
+  }
+`;

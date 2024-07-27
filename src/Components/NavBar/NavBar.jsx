@@ -1,26 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { NavbarContainer, Menu, MenuItem, FirstMenuItemLink, NotFirstMenuItem, NotFirstMenuItemLink } from './NavBarStyled';
+import { NavLinkStyled } from './NavBarStyled'; // Uvezi pravi naziv
+import { NavbarContainer, Menu, MenuItem } from './NavBarStyled'; // Prilagodite uvoz
 
 const NavBar = () => {
     return (
         <NavbarContainer>
             <Menu>
                 <MenuItem>
-                    <FirstMenuItemLink as={Link} to="/">Home</FirstMenuItemLink>
+                    <NavLinkStyled to="/" end>Home</NavLinkStyled>
                 </MenuItem>
-                <NotFirstMenuItem>
-                    <NotFirstMenuItemLink as={Link} to="/anime">Anime</NotFirstMenuItemLink>
-                </NotFirstMenuItem>
-                <NotFirstMenuItem>
-                    <NotFirstMenuItemLink as={Link} to="/manga">Manga</NotFirstMenuItemLink>
-                </NotFirstMenuItem>
-                <NotFirstMenuItem>
-                    <NotFirstMenuItemLink as={Link} to="/about-us">About Us</NotFirstMenuItemLink>
-                </NotFirstMenuItem>
-                <NotFirstMenuItem>
-                    <NotFirstMenuItemLink as={Link} to="/favorites">Favorites</NotFirstMenuItemLink>
-                </NotFirstMenuItem>
+                <MenuItem>
+                    <NavLinkStyled to="/anime">Anime</NavLinkStyled>
+                </MenuItem>
+                <MenuItem>
+                    <NavLinkStyled to="/manga">Manga</NavLinkStyled>
+                </MenuItem>
+                <MenuItem>
+                    <NavLinkStyled to="/about-us">About Us</NavLinkStyled>
+                </MenuItem>
+                <MenuItem>
+                    <NavLinkStyled to="/favorites">Favorites</NavLinkStyled>
+                </MenuItem>
             </Menu>
         </NavbarContainer>
     );
