@@ -6,6 +6,7 @@ export const AnimeData = createContext()
 export function AnimeProvider({ children }) {
   const [anime, setAnimeData] = useState([])
   const [detailAnime, setDetailAnime] = useState([])
+  const [favoriteAnime, setFavoriteAnime] = useState([])
 
   const clearDetailAnime = () => {
     setDetailAnime([])
@@ -28,7 +29,14 @@ export function AnimeProvider({ children }) {
 
   return (
     <AnimeData.Provider
-      value={{ anime, detailAnime, setDetailAnime, clearDetailAnime }}
+      value={{
+        anime,
+        detailAnime,
+        setDetailAnime,
+        clearDetailAnime,
+        favoriteAnime,
+        setFavoriteAnime,
+      }}
     >
       {children}
     </AnimeData.Provider>

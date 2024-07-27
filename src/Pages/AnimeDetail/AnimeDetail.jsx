@@ -8,15 +8,25 @@ import {
   DescriptionText,
   AddToFavorites,
 } from "./AnimeDetailStyled"
+import { Link } from "react-router-dom"
 
 export function AnimeDetail() {
-  const { detailAnime } = useContext(AnimeData)
+  const { detailAnime, favoriteAnime, setFavoriteAnime } = useContext(AnimeData)
 
   // useEffect(() => {
   //   return () => {
   //     clearDetailAnime()
   //   }
   // }, [clearDetailAnime])
+
+  const addAnimeToFavorite = (item) => {
+    const alreadyFavorite = favoriteAnime.some(
+      (favorite) => favorite.id === item.id
+    )
+    if (!alreadyFavorite) {
+      setFavoriteAnime([...favoriteAnime, item])
+    }
+  }
 
   return (
     <ParentDiv>
@@ -26,7 +36,11 @@ export function AnimeDetail() {
           <DescriptionDiv>
             <Title>{item.attributes.canonicalTitle}</Title>
             <DescriptionText>{item.attributes.description}</DescriptionText>
-            <AddToFavorites>Add to favorites</AddToFavorites>
+            <Link to="/favorites">
+              <AddToFavorites onClick={() => addAnimeToFavorite(item)}>
+                Add to favorites
+              </AddToFavorites>
+            </Link>
           </DescriptionDiv>
         </>
       ))}
