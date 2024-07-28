@@ -7,15 +7,11 @@ import {
   StyledCardMedia,
 } from "./GenreCardStyled"
 
-export function GenreCard({ genre, animeManga }) {
-  console.log("GenreCard props:", { genre, animeManga })
+import { Link } from "react-router-dom"
 
+export function GenreCard({ genre, animeManga }) {
   return (
     <ParentDiv>
-      <GenreTitleDiv>
-        <GenreTitle>{genre}</GenreTitle>
-      </GenreTitleDiv>
-
       <CardDiv>
         <StyledCard>
           <StyledCardMedia

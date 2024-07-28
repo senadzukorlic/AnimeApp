@@ -50,6 +50,7 @@ export async function fetchRomanceAnime() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
+
 export async function fetchTrendingAnime() {
   try {
     const response = await instance.get("/trending/anime", {})
@@ -57,6 +58,34 @@ export async function fetchTrendingAnime() {
   } catch (error) {
     console.log("Fetchanje nije uspelo", error)
   }
+
+export async function fetchAdventureManga() {
+  try {
+    const response = await instance.get("/manga", {
+      params: {
+        "filter[genres]": "adventure",
+        sort: "-user_count",
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.log(`Fetchanje nije uspelo`, error)
+  }
+}
+
+export async function fetchActionManga() {
+  try {
+    const response = await instance.get("/manga", {
+      params: {
+        "filter[genres]": "action",
+        sort: "-user_count",
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.log(`Fetchanje nije uspelo`, error)
+  }
+
 }
 
 export async function AnimeApi() {
