@@ -1,4 +1,5 @@
-import { styled } from '@mui/material';
+import { styled } from "@mui/material"
+
 
 export const AnimeGalleryContainer = styled('div')`
   display: flex;
@@ -10,42 +11,36 @@ export const AnimeGalleryContainer = styled('div')`
   padding: 20px;
 `;
 
-export const AnimeGalleryTitle = styled('h1')`
+
+export const AnimeGalleryTitle = styled("h1")`
   color: #fff;
   margin-bottom: 20px;
   font-size: 24px;
-  font-weight: 300;
-  border-bottom: 1px solid white;
-  width: 100%;
-  padding-bottom: 15px; /* Adjust this value as needed to move the border down */
-`;
 
-export const AnimeImagesContainer = styled('div')`
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+`
+
+
+export const AnimeImagesContainer = styled("div")`
+  padding-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 120px;
-`;
 
-export const AnimeCard = styled('div')`
-  position: relative;
-  max-width: 300px;
-  cursor: pointer;
-  &:hover .anime-title,
-  &:hover .remove-button {
-    opacity: 1;
-  }
-  &:hover .anime-image {
-    transform: scale(1.05);
-    filter: brightness(40%);
-  }
-`;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  gap: 30px;
+`
 
-export const AnimeImage = styled('img')`
-  width: 300px;
+export const AnimeCard = styled("div")``
+
+export const AnimeImage = styled("img")`
+  width: 280px;
   height: 400px;
   border-radius: 8px;
   transition: transform 0.3s;
-`;
+
 
 export const AnimeTitle = styled('div')`
   position: absolute;
@@ -87,7 +82,8 @@ export const RemoveButton = styled('button')`
   &.remove-button {
     opacity: 0;
   }
+
   &:hover {
     color: #ff0000;
   }
-`;
+`

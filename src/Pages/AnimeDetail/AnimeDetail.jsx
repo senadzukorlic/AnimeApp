@@ -11,7 +11,10 @@ import {
 import { Link } from "react-router-dom"
 
 export function AnimeDetail() {
-  const { detailAnime, favoriteAnime, setFavoriteAnime, clearDetailAnime } = useContext(AnimeData)
+
+  const { detailAnime, favoriteAnime, setFavoriteAnime, clearDetailAnime } =
+    useContext(AnimeData)
+
 
   useEffect(() => {
     return () => {
