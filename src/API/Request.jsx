@@ -50,6 +50,15 @@ export async function fetchRomanceAnime() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
+
+export async function fetchTrendingAnime() {
+  try {
+    const response = await instance.get("/trending/anime", {})
+    return response.data
+  } catch (error) {
+    console.log("Fetchanje nije uspelo", error)
+  }
+
 export async function fetchAdventureManga() {
   try {
     const response = await instance.get("/manga", {
@@ -76,6 +85,7 @@ export async function fetchActionManga() {
   } catch (error) {
     console.log(`Fetchanje nije uspelo`, error)
   }
+
 }
 
 export async function AnimeApi() {
