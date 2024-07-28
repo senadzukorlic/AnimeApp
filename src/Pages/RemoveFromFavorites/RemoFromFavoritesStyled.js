@@ -40,7 +40,7 @@ export const AddToFavorites = styled("Button")`
   background-color: inherit;
   color: white;
   border-radius: 5px;
-  width: 150px;
+  width: 200px;
   height: 45px;
   font-size: 1em;
   margin-top: 20px;

@@ -12,6 +12,7 @@ import { AnimeDetail } from "./Pages/AnimeDetail/AnimeDetail"
 import { Manga } from "./Pages/Manga/Manga"
 import { AboutUs } from "./Pages/AboutUs/AboutUs"
 import { Favorites } from "./Pages/Favorites/Favorites"
+import { RemoveFromFavorites } from "./Pages/RemoveFromFavorites/RemoveFromFavorites"
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/manga" element={<Manga />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/remove-favorites" element={<RemoveFromFavorites />} />
         </Routes>
       </div>
       <Footer />
