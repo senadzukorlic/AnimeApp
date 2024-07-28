@@ -8,6 +8,7 @@ export const AnimeStyled = styled("div")`
 `;
 
 export const AnimeCard = styled("div")`
+  overflow: hidden;
   transition: 1s;
   border-radius: 2px;
   height: 300px;

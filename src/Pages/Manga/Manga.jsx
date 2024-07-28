@@ -9,6 +9,7 @@ import CategorySelector from "../../Components/CategorySearchInput/CategorySearc
 import Loader from "../../Components/Loader/loader";
 import SearchInput from "../../Components/search/input";
 import { Container, Typography } from "@mui/material";
+import Info from "../../Components/InfoPopUp/Info"; // Import Info component
 
 export default function Manga() {
   const { mangaData, setMangaData } = useContext(AnimeData);
@@ -16,6 +17,8 @@ export default function Manga() {
   const [hasMore, setHasMore] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedManga, setSelectedManga] = useState(null); // State for selected manga
+  const [infoOpen, setInfoOpen] = useState(false); // State for Info component visibility
 
   const fetchMoreData = useCallback(
     throttle(async () => {
@@ -60,6 +63,16 @@ export default function Manga() {
     setHasMore(true);
   };
 
+  const handleCardClick = (manga) => {
+    setSelectedManga(manga);
+    setInfoOpen(true);
+  };
+
+  const handleCloseInfo = () => {
+    setInfoOpen(false);
+    setSelectedManga(null);
+  };
+
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
@@ -84,9 +97,6 @@ export default function Manga() {
 
   return (
     <Container style={{ marginLeft: "15%", marginRight: "20%" }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Manga List
-      </Typography>
       <div
         style={{
           display: "flex",
@@ -119,6 +129,7 @@ export default function Manga() {
                 style={{
                   backgroundImage: `url(${manga.attributes?.posterImage?.large})`,
                 }}
+                onClick={() => handleCardClick(manga)} // Add onClick event
               >
                 <TextHolder>
                   <Text>{manga.attributes?.canonicalTitle || "No Title"}</Text>
@@ -130,6 +141,11 @@ export default function Manga() {
       ) : (
         <Loader />
       )}
+      <Info
+        open={infoOpen}
+        handleClose={handleCloseInfo}
+        anime={selectedManga}
+      />
     </Container>
   );
 }
