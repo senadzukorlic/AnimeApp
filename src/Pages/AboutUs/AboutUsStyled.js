@@ -1,7 +1,7 @@
-import { styled } from "@mui/material";
+import { styled } from '@mui/material';
 
 // Profile card styles
-export const StyledProfileCard = styled("div")`
+export const StyledProfileCard = styled('div')`
   z-index: 10000;
   width: 300px;
   height: 400px;
@@ -36,11 +36,11 @@ export const StyledProfileCard = styled("div")`
 `;
 
 // Profile image container styles
-export const ProfileImageContainer = styled("div")`
+export const ProfileImageContainer = styled('div')`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   transition: all 0.5s ease-in-out;
@@ -50,7 +50,7 @@ export const ProfileImageContainer = styled("div")`
 `;
 
 // Profile image styles
-export const ProfileImg = styled("img")`
+export const ProfileImg = styled('img')`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -58,7 +58,7 @@ export const ProfileImg = styled("img")`
 `;
 
 // Profile info styles
-export const ProfileInfo = styled("div")`
+export const ProfileInfo = styled('div')`
   opacity: 0;
   z-index: -1;
   transform: translateY(20px);
@@ -90,13 +90,13 @@ export const ProfileInfo = styled("div")`
 `;
 
 // Social icons styles
-export const SocialIcons = styled("div")`
+export const SocialIcons = styled('div')`
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
 
   a {
-    margin: 0 10px;
+   
     font-size: 1.5em;
     color: inherit;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -109,10 +109,13 @@ export const SocialIcons = styled("div")`
 `;
 
 // Profile cards container styles
-export const ProfileCardsContainer = styled("div")`
+export const ProfileCardsContainer = styled('div')`
   display: flex;
-  flex-direction: column; /* Ensures vertical stacking */
+  flex-direction: row; 
   justify-content: center;
   align-items: center;
   margin-top: 120px;
+  margin-bottom:120px;
+  margin-left:3%;
+  flex-wrap: wrap; /* Allows wrapping to next line if too many cards */
 `;
