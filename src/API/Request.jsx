@@ -59,6 +59,7 @@ export async function fetchTrendingAnime() {
     console.log("Fetchanje nije uspelo", error)
   }
 }
+
 export async function fetchAdventureManga() {
   try {
     const response = await instance.get("/manga", {
@@ -97,5 +98,18 @@ export async function AnimeApi() {
     return response.data
   } catch (error) {
     console.log(`Fetchanje nije uspelo`, error)
+  }
+}
+
+export async function MangaApi() {
+  try {
+    const response = await axios.get("https://kitsu.io/api/edge/manga", {
+      headers: {
+        Accept: "application/vnd.api+json",
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.log("Fetching manga data failed", error)
   }
 }
