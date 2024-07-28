@@ -9,7 +9,7 @@ import CategorySelector from "../../Components/CategorySearchInput/CategorySearc
 import Loader from "../../Components/Loader/loader";
 import SearchInput from "../../Components/search/input";
 import { Container, Typography } from "@mui/material";
-import { Margin } from "@mui/icons-material";
+import Info from "../../Components/InfoPopUp/Info"; // Import Info component
 
 export default function Anime() {
   const { animeData, setAnimeData } = useContext(AnimeData);
@@ -17,6 +17,8 @@ export default function Anime() {
   const [hasMore, setHasMore] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedAnime, setSelectedAnime] = useState(null); // State for selected anime
+  const [infoOpen, setInfoOpen] = useState(false); // State for Info component visibility
 
   const fetchMoreData = useCallback(
     throttle(async () => {
@@ -59,6 +61,16 @@ export default function Anime() {
     setAnimeData([]);
     setPage(1);
     setHasMore(true);
+  };
+
+  const handleCardClick = (anime) => {
+    setSelectedAnime(anime);
+    setInfoOpen(true);
+  };
+
+  const handleCloseInfo = () => {
+    setInfoOpen(false);
+    setSelectedAnime(null);
   };
 
   useEffect(() => {
@@ -117,6 +129,7 @@ export default function Anime() {
                 style={{
                   backgroundImage: `url(${anime.attributes?.posterImage?.large})`,
                 }}
+                onClick={() => handleCardClick(anime)} // Add onClick event
               >
                 <TextHolder>
                   <Text>{anime.attributes?.canonicalTitle || "No Title"}</Text>
@@ -128,6 +141,7 @@ export default function Anime() {
       ) : (
         <Loader />
       )}
+      <Info open={infoOpen} handleClose={handleCloseInfo} anime={selectedAnime} />
     </Container>
   );
 }

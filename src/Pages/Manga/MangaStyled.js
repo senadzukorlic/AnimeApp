@@ -8,9 +8,10 @@ export const AnimeStyled = styled("div")`
 `;
 
 export const AnimeCard = styled("div")`
+  overflow: hidden;
   transition: 1s;
   border-radius: 2px;
-  height: 500px;
+  height: 300px;
   width: 100%; /* Adjust width to fit grid column */
   background-color: black;
   display: flex;
