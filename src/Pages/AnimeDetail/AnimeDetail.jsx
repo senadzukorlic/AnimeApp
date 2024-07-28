@@ -13,11 +13,11 @@ import { Link } from "react-router-dom"
 export function AnimeDetail() {
   const { detailAnime, favoriteAnime, setFavoriteAnime } = useContext(AnimeData)
 
-  // useEffect(() => {
-  //   return () => {
-  //     clearDetailAnime()
-  //   }
-  // }, [clearDetailAnime])
+  useEffect(() => {
+    return () => {
+      clearDetailAnime()
+    }
+  }, [clearDetailAnime])
 
   const addAnimeToFavorite = (item) => {
     const alreadyFavorite = favoriteAnime.some(
