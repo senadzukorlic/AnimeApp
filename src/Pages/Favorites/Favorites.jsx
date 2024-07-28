@@ -1,27 +1,37 @@
-import React from 'react';
-import { AnimeData } from "../../Context/Anime"
-import { useContext } from 'react';
-import image from "../Favorites/download.png"; // Ensure this path points to your image file
+import React, { useContext } from 'react';
+import { AnimeData } from "../../Context/Anime";
 import {
   AnimeGalleryContainer,
   AnimeGalleryTitle,
   AnimeImagesContainer,
   AnimeCard,
-  AnimeImage
+  AnimeImage,
+  AnimeTitle,
+  RemoveButton
 } from './FavoritesStyled';
 
 export function Favorites() {
-  const {favoriteAnime } = useContext(AnimeData)
+  const { favoriteAnime, removeFavorite } = useContext(AnimeData);
+
+  const handleRemove = (id) => {
+    removeFavorite(id);
+  };
+
   return (
     <AnimeGalleryContainer>
       <AnimeGalleryTitle>Anime</AnimeGalleryTitle>
       <AnimeImagesContainer>
-        {favoriteAnime.map((item) => (<AnimeCard key={item.id}>
-          <AnimeImage src={item.attributes.posterImage.original} alt="Anime 1" />
-        </AnimeCard>))}
+        {favoriteAnime.map((item) => (
+          <AnimeCard key={item.id}>
+            <AnimeImage className="anime-image" src={item.attributes.posterImage.original} alt={item.attributes.canonicalTitle} />
+            <AnimeTitle className="anime-title">{item.attributes.canonicalTitle}</AnimeTitle>
+            <RemoveButton className="remove-button" onClick={() => handleRemove(item.id)}>Remove From Favorites</RemoveButton>
+          </AnimeCard>
+        ))}
       </AnimeImagesContainer>
     </AnimeGalleryContainer>
   );
 }
 
 export default Favorites;
+
