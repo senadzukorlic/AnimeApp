@@ -10,7 +10,7 @@ import SearchInput from "../../Components/search/input"
 import { Container } from "@mui/material"
 import Info from "../../Components/InfoPopUp/Info"
 export default function Manga() {
-  const { mangaData, setMangaData } = useContext(AnimeData)
+  const { mangaData, setMangaData, setFavoriteAnime } = useContext(AnimeData)
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState("")
@@ -47,6 +47,9 @@ export default function Manga() {
     [page, selectedCategory, searchQuery, setMangaData]
   )
 
+  const handleAddToFavorites = (anime) => {
+    setFavoriteAnime((prevFavorites) => [...prevFavorites, anime])
+  }
   const handleCategoryChange = (category) => {
     setSelectedCategory(category)
     setMangaData([])
@@ -143,6 +146,7 @@ export default function Manga() {
         open={infoOpen}
         handleClose={handleCloseInfo}
         anime={selectedManga}
+        onAddToFavorites={handleAddToFavorites}
       />
     </Container>
   )

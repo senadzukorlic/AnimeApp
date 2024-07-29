@@ -7,11 +7,11 @@ import { throttle } from "lodash"
 import CategorySelector from "../../Components/CategorySearchInput/CategorySearchInput"
 import Loader from "../../Components/Loader/loader"
 import SearchInput from "../../Components/search/input"
-import { Container, Typography } from "@mui/material"
+import { Container } from "@mui/material"
 import Info from "../../Components/InfoPopUp/Info"
 
 export default function Anime() {
-  const { animeData, setAnimeData } = useContext(AnimeData)
+  const { animeData, setAnimeData, setFavoriteAnime } = useContext(AnimeData)
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState("")
@@ -47,6 +47,10 @@ export default function Anime() {
     }, 500),
     [page, selectedCategory, searchQuery, setAnimeData]
   )
+
+  const handleAddToFavorites = (anime) => {
+    setFavoriteAnime((prevFavorites) => [...prevFavorites, anime])
+  }
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category)
@@ -128,7 +132,7 @@ export default function Anime() {
                 style={{
                   backgroundImage: `url(${anime.attributes?.posterImage?.large})`,
                 }}
-                onClick={() => handleCardClick(anime)} // Add onClick event
+                onClick={() => handleCardClick(anime)}
               >
                 <TextHolder>
                   <Text>{anime.attributes?.canonicalTitle || "No Title"}</Text>
@@ -144,6 +148,7 @@ export default function Anime() {
         open={infoOpen}
         handleClose={handleCloseInfo}
         anime={selectedAnime}
+        onAddToFavorites={handleAddToFavorites}
       />
     </Container>
   )

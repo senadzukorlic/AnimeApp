@@ -1,10 +1,10 @@
-import React from "react";
-import "./FavoriteStyle.css";
+import React from "react"
+import "./FavoriteStyle.css"
 
-export default function Favorite() {
+export default function Favorite({ onClick }) {
   return (
     <div>
-      <div title="Like" class="heart-container">
+      <div title="Like" class="heart-container" onClick={onClick}>
         <input id="Give-It-An-Id" class="checkbox" type="checkbox" />
         <div class="svg-container">
           <svg
@@ -37,5 +37,5 @@ export default function Favorite() {
         </div>
       </div>
     </div>
-  );
+  )
 }
