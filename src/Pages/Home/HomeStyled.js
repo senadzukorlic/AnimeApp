@@ -3,15 +3,12 @@ import { styled } from "@mui/material"
 export const ParentDiv = styled("div")`
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
   align-items: center;
   width: 90%;
 `
 
 export const CardContainer = styled("div")`
   width: 100%;
-  /* margin-bottom: 20px; */
-  /* background-color: red; */
   padding-left: 10px;
 
   .card-scroll {

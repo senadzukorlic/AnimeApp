@@ -1,9 +1,9 @@
-import React from "react";
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import "./input.css";
+import React from "react"
+import Paper from "@mui/material/Paper"
+import InputBase from "@mui/material/InputBase"
+import IconButton from "@mui/material/IconButton"
+import SearchIcon from "@mui/icons-material/Search"
+import "./input.css"
 function SearchInput({ valueProp, onChangeProp }) {
   return (
     <div className="searchContainer">
@@ -39,22 +39,7 @@ function SearchInput({ valueProp, onChangeProp }) {
         />
       </Paper>
     </div>
-  );
+  )
 }
 
-export default SearchInput;
-
-// @@@@@@@@@@@..@@@@@@@@@@@@  %@@@@@@@@@@@=    +@@@@@@@@@@    %@@@@@@@@#
-// @@@@@@@@@@@..@@@@@@@@@@@@  %@@@@@@@@@@@@    @@@@@@@@@@@   =@@@@@@@@@@-
-// @@@@@@@@@@@..@@@@@@@@@@@@  %@@@@@@@@@@@@.  .@@@@@@@@@@@   #@@@@@@@@@@+
-// @@@-..*@@@%  .#@@@*..=@@@  .+@@@@.:*@@@@.  :@@@@%:-@@@@   %@@@%:-@@@@*
-// @@@: +@@@#    #@@@+  =@@@   =@@@@   @@@@   -@@@@=  @@@@   @@@@=  #@@@#
-//     *@@@*     #@@@*..-=--   =@@@@ .+@@@-   -@@@@.  ----   @@@@-  #@@@#
-//    #@@@#      #@@@@@@@-     =@@@@@@@@*.    -@@@@.-@@@@@@* @@@@-  #@@@#
-//   #@@@#       #@@@#===.     =@@@@=+@@@%.   -@@@@.-@@@@@@* @@@@-  #@@@#
-//  #@@@* +###.  #@@@+  -%%%:  =@@@@  -@@@= : -@@@@: :@@@@-. @@@@-  #@@@#
-// #@@@*  #@@@.  #@@@+  =@@@:  =@@@@  :@@@+ @=-@@@@+ .@@@@   @@@@+  @@@@#
-// *@@@@***@@@@..*@@@@%**#@@@: +#@@@@*::@@@%+@+-@@@@@#%@@@@   %@@@@*#@@@@*
-// #@@@@@@@@@@@..@@@@@@@@@@@@: %@@@@@@=:@@@@@@+:@@@@@@@@@@@   *@@@@@@@@@@+
-// #@@@@@@@@@@@..@@@@@@@@@@@@: %@@@@@@= @@@@@@- @@@@@@@@@@@   -@@@@@@@@@@.
-// %@@@@@@@@@@@..@@@@@@@@@@@@: %@@@@@@= =@@@@#  =@@@@@@**@@    *@@@@@@@@-
+export default SearchInput

@@ -1,5 +1,4 @@
-// InfoPopUp/InfoStyled.js
-import { styled } from "@mui/material";
+import { styled } from "@mui/material"
 
 export const InfoBox = styled(Box)`
   position: absolute;
@@ -11,5 +10,4 @@ export const InfoBox = styled(Box)`
   border: 2px solid #000;
   box-shadow: 24;
   padding: 16px;
-
-`;
+`

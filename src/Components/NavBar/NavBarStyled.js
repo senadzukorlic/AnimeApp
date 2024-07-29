@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from "styled-components"
+import { NavLink } from "react-router-dom"
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const NavbarContainer = styled.div`
   border-bottom: none;
   margin: 0;
   font-weight: bold;
-`;
+`
 
 export const Menu = styled.ul`
   list-style-type: none;
@@ -25,15 +25,14 @@ export const Menu = styled.ul`
   width: 100%;
   font-size: 15px;
   height: 100%;
-`;
+`
 
 export const MenuItem = styled.li`
   margin-bottom: 26px;
-`;
+`
 
-// Stilizovani NavLink
 export const NavLinkStyled = styled(NavLink)`
-  color: rgb(153, 149, 149); /* Osnovna boja teksta */
+  color: rgb(153, 149, 149);
   text-decoration: none;
   transition: transform 0.2s, font-size 0.2s ease;
   display: inline-block;
@@ -42,13 +41,13 @@ export const NavLinkStyled = styled(NavLink)`
   margin-right: 10px;
 
   &:hover {
-    font-size: 18px; /* Veća veličina fonta za hover efekat */
-    color: white; /* Promeni boju na hover */
+    font-size: 18px;
+    color: white;
     transform: translateX(9px);
   }
 
   &.active {
-    font-size: 20px; /* Veća veličina fonta za aktivan link */
-    color: white; /* Boja teksta za aktivan link */
+    font-size: 20px;
+    color: white;
   }
-`;
+`

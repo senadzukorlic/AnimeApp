@@ -1,39 +1,55 @@
-import { createContext, useState, useEffect } from "react";
-import { AnimeApi, MangaApi } from "../API/Request";
+import { createContext, useState, useEffect } from "react"
+import { AnimeApi, MangaApi } from "../API/Request"
 
-export const AnimeData = createContext();
+export const AnimeData = createContext()
 
 export function AnimeProvider({ children }) {
-  const [animeData, setAnimeData] = useState([]);
-  const [mangaData, setMangaData] = useState([]);
+  const [animeData, setAnimeData] = useState([])
+  const [mangaData, setMangaData] = useState([])
+  const [favoriteAnime, setFavoriteAnime] = useState([])
+  const [detailAnime, setDetailAnime] = useState([])
+
+  const clearDetailAnime = () => {
+    setDetailAnime([])
+  }
 
   useEffect(() => {
     const fetchAnimeData = async () => {
       try {
-        const animeResponse = await AnimeApi();
-        const mangaResponse = await MangaApi();
+        const animeResponse = await AnimeApi()
+        const mangaResponse = await MangaApi()
 
         if (animeResponse && mangaResponse) {
-          setAnimeData(animeResponse.data);
-          setMangaData(mangaResponse.data);
-          console.log("ANIME Data:", animeResponse.data);
-          console.log("MANGA Data:", mangaResponse.data);
+          setAnimeData(animeResponse.data)
+          setMangaData(mangaResponse.data)
+          console.log("ANIME Data:", animeResponse.data)
+          console.log("MANGA Data:", mangaResponse.data)
         } else {
-          console.log("API response is missing");
+          console.log("API response is missing")
         }
       } catch (error) {
-        console.log("Fetching data failed", error);
+        console.log("Fetching data failed", error)
       }
-    };
+    }
 
-    fetchAnimeData();
-  }, []);
+    fetchAnimeData()
+  }, [])
 
   return (
     <AnimeData.Provider
-      value={{ animeData, setAnimeData, mangaData, setMangaData }}
+      value={{
+        animeData,
+        setAnimeData,
+        mangaData,
+        setMangaData,
+        favoriteAnime,
+        setFavoriteAnime,
+        detailAnime,
+        setDetailAnime,
+        clearDetailAnime,
+      }}
     >
       {children}
     </AnimeData.Provider>
-  );
+  )
 }
