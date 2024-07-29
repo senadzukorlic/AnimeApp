@@ -7,13 +7,11 @@ export const ParentDiv = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: orange; */
   gap: 20px;
 `
 export const GenreTitleDiv = styled("div")`
   display: flex;
   justify-content: start;
-  /* background-color: purple; */
   padding-left: 10px;
   width: 100%;
   padding-top: 20px;
@@ -30,7 +28,6 @@ export const CardDiv = styled("div")`
   justify-content: start;
   align-items: center;
   gap: 10px;
-  /* background-color: green; */
   width: 100%;
   height: 100%;
 `

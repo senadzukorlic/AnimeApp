@@ -23,7 +23,6 @@ export async function fetchHorrorAnime() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
-
 export async function fetchAdventureAnime() {
   try {
     const response = await instance.get("/anime", {
@@ -50,7 +49,6 @@ export async function fetchRomanceAnime() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
-
 export async function fetchTrendingAnime() {
   try {
     const response = await instance.get("/trending/anime", {})
@@ -59,7 +57,6 @@ export async function fetchTrendingAnime() {
     console.log("Fetchanje nije uspelo", error)
   }
 }
-
 export async function fetchAdventureManga() {
   try {
     const response = await instance.get("/manga", {
@@ -73,7 +70,6 @@ export async function fetchAdventureManga() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
-
 export async function fetchActionManga() {
   try {
     const response = await instance.get("/manga", {
@@ -87,7 +83,6 @@ export async function fetchActionManga() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
-
 export async function AnimeApi() {
   try {
     const response = await axios.get("https://kitsu.io/api/edge/anime", {
@@ -100,7 +95,6 @@ export async function AnimeApi() {
     console.log(`Fetchanje nije uspelo`, error)
   }
 }
-
 export async function MangaApi() {
   try {
     const response = await axios.get("https://kitsu.io/api/edge/manga", {

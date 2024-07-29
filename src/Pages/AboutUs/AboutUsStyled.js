@@ -1,7 +1,6 @@
-import { styled } from '@mui/material';
+import { styled } from "@mui/material"
 
-// Profile card styles
-export const StyledProfileCard = styled('div')`
+export const StyledProfileCard = styled("div")`
   z-index: 10000;
   width: 300px;
   height: 400px;
@@ -33,10 +32,9 @@ export const StyledProfileCard = styled('div')`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
-// Profile image container styles
-export const ProfileImageContainer = styled('div')`
+export const ProfileImageContainer = styled("div")`
   width: 100%;
   height: 100%;
   display: flex;
@@ -47,18 +45,16 @@ export const ProfileImageContainer = styled('div')`
   position: absolute;
   top: 0;
   left: 0;
-`;
+`
 
-// Profile image styles
-export const ProfileImg = styled('img')`
+export const ProfileImg = styled("img")`
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: all 0.5s ease-in-out;
-`;
+`
 
-// Profile info styles
-export const ProfileInfo = styled('div')`
+export const ProfileInfo = styled("div")`
   opacity: 0;
   z-index: -1;
   transform: translateY(20px);
@@ -87,16 +83,14 @@ export const ProfileInfo = styled('div')`
     margin: 10px 0;
     color: gray;
   }
-`;
+`
 
-// Social icons styles
-export const SocialIcons = styled('div')`
+export const SocialIcons = styled("div")`
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
 
   a {
-   
     font-size: 1.5em;
     color: inherit;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -106,16 +100,15 @@ export const SocialIcons = styled('div')`
       transform: scale(1.2);
     }
   }
-`;
+`
 
-// Profile cards container styles
-export const ProfileCardsContainer = styled('div')`
+export const ProfileCardsContainer = styled("div")`
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 120px;
-  margin-bottom:120px;
-  margin-left:3%;
-  flex-wrap: wrap; /* Allows wrapping to next line if too many cards */
-`;
+  margin-bottom: 120px;
+  margin-left: 3%;
+  flex-wrap: wrap;
+`

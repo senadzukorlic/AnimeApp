@@ -1,10 +1,9 @@
-// InfoPopUp/Info.jsx
-import React from "react";
-import { Modal, Box, Typography } from "@mui/material";
-import Favorite from "./FavoriteButton";
+import React from "react"
+import { Modal, Box, Typography } from "@mui/material"
+import Favorite from "./FavoriteButton"
 
 export default function Info({ open, handleClose, anime }) {
-  if (!anime) return null;
+  if (!anime) return null
 
   return (
     <Modal open={open} onClose={handleClose}>
@@ -30,9 +29,8 @@ export default function Info({ open, handleClose, anime }) {
         <Typography sx={{ mt: 2, color: "white" }}>
           {anime.attributes.synopsis}
         </Typography>
-        <Favorite /> 
-        {/* Make an onClick for the favorite button and setup the logic please and thank you :D */}
+        <Favorite />
       </Box>
     </Modal>
-  );
+  )
 }

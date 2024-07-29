@@ -1,24 +1,23 @@
-// Components/Anime/Anime.jsx
-import React, { useContext, useState, useCallback, useEffect } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { AnimeData } from "../../Context/Anime";
-import { AnimeCard, AnimeStyled, TextHolder, Text } from "./AnimeStyled";
-import axios from "axios";
-import { throttle } from "lodash";
-import CategorySelector from "../../Components/CategorySearchInput/CategorySearchInput";
-import Loader from "../../Components/Loader/loader";
-import SearchInput from "../../Components/search/input";
-import { Container, Typography } from "@mui/material";
-import Info from "../../Components/InfoPopUp/Info"; // Import Info component
+import React, { useContext, useState, useCallback, useEffect } from "react"
+import InfiniteScroll from "react-infinite-scroll-component"
+import { AnimeData } from "../../Context/Anime"
+import { AnimeCard, AnimeStyled, TextHolder, Text } from "./AnimeStyled"
+import axios from "axios"
+import { throttle } from "lodash"
+import CategorySelector from "../../Components/CategorySearchInput/CategorySearchInput"
+import Loader from "../../Components/Loader/loader"
+import SearchInput from "../../Components/search/input"
+import { Container, Typography } from "@mui/material"
+import Info from "../../Components/InfoPopUp/Info"
 
 export default function Anime() {
-  const { animeData, setAnimeData } = useContext(AnimeData);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedAnime, setSelectedAnime] = useState(null); // State for selected anime
-  const [infoOpen, setInfoOpen] = useState(false); // State for Info component visibility
+  const { animeData, setAnimeData } = useContext(AnimeData)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState("")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedAnime, setSelectedAnime] = useState(null)
+  const [infoOpen, setInfoOpen] = useState(false)
 
   const fetchMoreData = useCallback(
     throttle(async () => {
@@ -34,44 +33,44 @@ export default function Anime() {
               Accept: "application/vnd.api+json",
             },
           }
-        );
-        const newAnimeData = response.data.data;
+        )
+        const newAnimeData = response.data.data
         if (newAnimeData.length === 0) {
-          setHasMore(false);
+          setHasMore(false)
         } else {
-          setAnimeData((prevAnimeData) => [...prevAnimeData, ...newAnimeData]);
-          setPage((prevPage) => prevPage + 1);
+          setAnimeData((prevAnimeData) => [...prevAnimeData, ...newAnimeData])
+          setPage((prevPage) => prevPage + 1)
         }
       } catch (error) {
-        console.error("Error fetching more anime data:", error);
+        console.error("Error fetching more anime data:", error)
       }
-    }, 500), // Throttle to 500ms
+    }, 500),
     [page, selectedCategory, searchQuery, setAnimeData]
-  );
+  )
 
   const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setAnimeData([]);
-    setPage(1);
-    setHasMore(true);
-  };
+    setSelectedCategory(category)
+    setAnimeData([])
+    setPage(1)
+    setHasMore(true)
+  }
 
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-    setAnimeData([]);
-    setPage(1);
-    setHasMore(true);
-  };
+    setSearchQuery(event.target.value)
+    setAnimeData([])
+    setPage(1)
+    setHasMore(true)
+  }
 
   const handleCardClick = (anime) => {
-    setSelectedAnime(anime);
-    setInfoOpen(true);
-  };
+    setSelectedAnime(anime)
+    setInfoOpen(true)
+  }
 
   const handleCloseInfo = () => {
-    setInfoOpen(false);
-    setSelectedAnime(null);
-  };
+    setInfoOpen(false)
+    setSelectedAnime(null)
+  }
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -85,18 +84,18 @@ export default function Anime() {
               Accept: "application/vnd.api+json",
             },
           }
-        );
-        setAnimeData(response.data.data);
+        )
+        setAnimeData(response.data.data)
       } catch (error) {
-        console.error("Error fetching initial anime data:", error);
+        console.error("Error fetching initial anime data:", error)
       }
-    };
+    }
 
-    fetchInitialData();
-  }, [selectedCategory, searchQuery, setAnimeData]);
+    fetchInitialData()
+  }, [selectedCategory, searchQuery, setAnimeData])
 
   return (
-    <Container style={{ marginLeft: "15%", marginRight: "20%" }}>
+    <Container>
       <div
         style={{
           display: "flex",
@@ -141,7 +140,11 @@ export default function Anime() {
       ) : (
         <Loader />
       )}
-      <Info open={infoOpen} handleClose={handleCloseInfo} anime={selectedAnime} />
+      <Info
+        open={infoOpen}
+        handleClose={handleCloseInfo}
+        anime={selectedAnime}
+      />
     </Container>
-  );
+  )
 }
