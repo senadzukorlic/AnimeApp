@@ -1,21 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  max-width: 1200px; /* Maksimalna širina carousela */
+  max-width: auto; /* Maksimalna širina carousela */
   height: 250px; /* Visina carousela */
-  margin: 0 ; /* Centriranje carousela */
+  margin: 0; /* Centriranje carousela */
   overflow: hidden; /* Sakrij deo sadržaja van vidokruga */
   border-radius: 8px; /* Zaobljeni uglovi */
-`;
+`
 
 export const CarouselWrapper = styled.div`
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
   height: 100%;
-`;
+`
 
 export const CarouselItem = styled.div`
   flex: 0 0 100%; /* Svaka slika zauzima celu širinu carousela */
@@ -30,20 +30,18 @@ export const CarouselItem = styled.div`
     transform: scale(1.05); /* Lagano uvećanje pri hover-u */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Senka pri hover-u */
   }
-`;
+`
 
 export const CarouselImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
-  
+
   ${CarouselItem}:hover & {
     filter: brightness(0.5); /* Smanjenje osvetljenosti pri hover-u */
   }
-`;
-
-
+`
 
 export const Title = styled.h1`
   position: absolute;
@@ -54,11 +52,11 @@ export const Title = styled.h1`
   font-weight: bold;
   transition: opacity 0.3s ease;
   opacity: 0;
-  
+
   ${CarouselItem}:hover & {
     opacity: 1; /* Prikazivanje naslova pri hover-u */
   }
-`;
+`
 
 export const Subtitle = styled.h2`
   position: absolute;
@@ -72,7 +70,7 @@ export const Subtitle = styled.h2`
   ${CarouselItem}:hover & {
     opacity: 1; /* Prikazivanje podnaslova pri hover-u */
   }
-`;
+`
 
 export const Rating = styled.h2`
   position: absolute;
@@ -86,7 +84,7 @@ export const Rating = styled.h2`
   ${CarouselItem}:hover & {
     opacity: 1; /* Prikazivanje ocene pri hover-u */
   }
-`;
+`
 
 export const IndicatorContainer = styled.div`
   position: absolute;
@@ -96,16 +94,16 @@ export const IndicatorContainer = styled.div`
   display: flex;
   gap: 10px;
   z-index: 1; /* Da bude iznad slike */
-`;
+`
 
 export const Indicator = styled.div`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: ${props => (props.active ? 'white' : 'gray')};
+  background-color: ${(props) => (props.active ? "white" : "gray")};
   cursor: pointer;
   transition: background-color 0.3s ease;
-`;
+`
 
 export const ArrowButton = styled.button`
   position: absolute;
@@ -134,4 +132,4 @@ export const ArrowButton = styled.button`
   &.right {
     right: 20px; /* Pozicija desna strelica bliže slici */
   }
-`;
+`
